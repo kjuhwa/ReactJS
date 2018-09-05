@@ -43,8 +43,53 @@ testCB(100, 200, function(a,b){
 
 // 객체(클래스정의)
 // 4가지 방식
-// 객체 리터럴 방식
+// 객체 리터럴 방식 (1회성 사용, 많은 데이터를 한번에 처리할때)
+var person = {
+    name: 'ncia',
+    age: 4,
+    talk: function(){
+        return 'ncia talk'
+    }
+};
+console.log(person);
+console.log(person.talk());
 // Object 확장 방식
+var person2 = new Object();
+person2.name = 'ncia2'
+person2.talk = function() {
+    return 'ncia talk2'
+}
+console.log(person2);
+console.log(person2.talk());
+
 // 생성자 함수 사용 방식
+function Person3(name, age){
+    this.name = name;
+    this.age = age;
+    // 객체를 계속 생성하면 함수 할당이 계속 발생되어
+    // 메모리를 소모하게 된다 => 해결방안 => prototype
+    this.talk = function(){
+        return 'ncia talk3'
+    }
+}
+var person3 = new Person3('ncia3', 4)
+console.log(person3);
+console.log(person3.talk());
+
 // 생성자 함수 + prototype 방식
+function Person4(){}
+Person4.prototype.name = 'ncia4';
+Person4.prototype.talk = function(){
+    return this.name;
+}
+var person4 = new Person4()
+console.log(person4);
+console.log(person4.talk());
+
+var person5 = new Person4()
+person5.prototype.name = 'ncia5'
+console.log(person5);
+console.log(person5.talk());
+
 // => 표준에서 => class ... 방식으로 정립
+// (prototype 사용을 기반으로 설계되어 있다)
