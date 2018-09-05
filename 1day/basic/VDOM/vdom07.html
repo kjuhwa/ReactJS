@@ -1,0 +1,48 @@
+<!-- VDOM 템플릿 구성-->
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<!-- react 컴포넌트가 그려질 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 함수형 컴포넌트 MyImage 만드시오
+// src 속성에는 이미지 url, label이라는 속성에는 이미지 설명
+// 형태   ============
+// 이미지
+// 설명
+// ===================
+
+function MyImage(props){
+    // JSX 리턴
+    return (
+        <div>
+            <h2>{props.label}</h2>
+            <img src={props.url} alt={props.label} />
+        </div>
+    )
+}
+
+const img_url = 'https://78.media.tumblr.com/3dcb9990c60bbc34e2b0bc61fc3adc95/tumblr_pefrq6KfUM1v9f0spo1_1280.jpg'
+const img_url2 = 'https://lh3.googleusercontent.com/ID4hF7d9dCFPr376yp9s5cCpjWJ54Zl7lhs2GD-OvsPkQuggQNDnkgq_ofwUFEBB_1XOk8RajzT09FInljYDrQQn8pK0RZyw=w1600-rj'
+
+// 1. JSX : 
+var html = <div>
+            <MyImage url={img_url} label='IZONE 멤버들' />
+            <MyImage url={img_url2} label='IZONE 팀 로고' />
+           </div>
+
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+
+// 3. 랜더링
+ReactDOM.render(html, root)
+
+</script>
+</body>
+</html>

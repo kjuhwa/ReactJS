@@ -1,0 +1,31 @@
+<!-- VDOM 템플릿 구성-->
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<!-- react 컴포넌트가 그려질 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+    
+// 1. JSX : 컴포넌트의 실제적인 내용. 반드시 root 엘리먼트가 존재
+// 엘리먼트 : <a>hi</a> => 시작태그 + 컨텐츠 + 종료태그 => 부모는 하나
+// 만약 내용이 번잡(복잡)해서 구분이 필요하다면 () 감쌀수 있다
+var html = <div>
+            <p>리액트</p>
+            <p>리덕스</p>
+           </div>
+
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+
+// 3. 랜더링
+ReactDOM.render(html, root)
+
+</script>
+</body>
+</html>
