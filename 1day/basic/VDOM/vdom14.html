@@ -1,0 +1,88 @@
+<!-- VDOM 템플릿 구성-->
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<!-- react 컴포넌트가 그려질 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+
+// 컴포넌트명 MyTravelCity
+// 화면 모습
+/* 
+============================================
+어디로 갈까? ( ○ ● )
+○ 홍콩
+● 후쿠오카
+○ 라오숭
+○ 제주
+============================================
+*/
+
+// 1. 컴포넌트
+class MyTravelCity extends React.Component{
+    constructor ( props ) {
+        super( props )
+        this.state = {
+            s1:false,
+            s2:false,
+            s3:false,
+            s4:false
+        }
+        this.selectHandler1 = this.selectHandler1.bind(this)
+        this.selectHandler2 = this.selectHandler2.bind(this)
+        this.selectHandler3 = this.selectHandler3.bind(this)
+        this.selectHandler4 = this.selectHandler4.bind(this)
+    }
+    selectHandler1 ( e ) {
+        this.setState ( { s1:!this.state.s1} )
+    }
+    selectHandler2 ( e ) {
+        this.setState ( { s2:!this.state.s2} )
+    }
+    selectHandler3 ( e ) {
+        this.setState ( { s3:!this.state.s3} )
+    }
+    selectHandler4 ( e ) {
+        this.setState ( { s4:!this.state.s4} )
+    }
+    getText ( state ) {
+        if( state ) {
+            return '●'
+        }
+        return '○'
+    }
+    render () {
+        var text1 = this.getText(this.state.s1)
+        var text2 = this.getText(this.state.s2)
+        var text3 = this.getText(this.state.s3)
+        var text4 = this.getText(this.state.s4)
+
+        return (
+            <div>
+                {/* JSX */}
+                <h2>어디로 갈까? ( ○ ● )</h2>
+                <div onClick={this.selectHandler1}>{text1} 홍콩</div>
+                <div onClick={this.selectHandler2}>{text2} 후쿠오카</div>
+                <div onClick={this.selectHandler3}>{text3} 라오숭</div>
+                <div onClick={this.selectHandler4}>{text4} 제주</div>
+            </div>
+        )
+    }
+}
+    
+
+// 2. 랜더링 대상
+var root = document.querySelector( '#root' )
+
+// 3. 랜더링
+ReactDOM.render( <MyTravelCity/>, root )
+
+</script>
+</body>
+</html>
