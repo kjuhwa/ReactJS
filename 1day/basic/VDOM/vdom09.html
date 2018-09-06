@@ -26,7 +26,9 @@ class MyList extends React.Component{
         return (
             <div>
                 <h2>{this.props.title}</h2>
-                {/* 리스트업 구성할때는 반드시 고유한 key=유니크한값 를 속성으로 넣어야 한다 => 부분랜더링때문에 */}
+                {/* 리스트업 구성할때는 반드시 고유한 key=유니크한값 를 속성으로 넣어야 한다 => 부분랜더링때문에 
+                    만약, 한국을또 넣어서 중복키를 만들면 경고뜸 본질적인 처리 필요
+                */}
                 <ul>
                     {list}
                 </ul>
