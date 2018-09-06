@@ -9,7 +9,7 @@ class ExchangeCal extends Component {
             krw:'',
             calc:''
         }
-        this.onChangeHandler = this.onChangeHandler.bind(this)
+        this.onInputChangeHandler = this.onInputChangeHandler.bind(this)
         this.onSelectChangeHandler = this.onSelectChangeHandler.bind(this)
     }
     componentWillMount() {
@@ -25,7 +25,7 @@ class ExchangeCal extends Component {
             }
         })
     }
-    onChangeHandler(e) {
+    onInputChangeHandler(e) {
         const value = e.target.value.replace(/[^0-9]/g, '')
         this.setState( {krw:value} )
     }
@@ -57,10 +57,10 @@ class ExchangeCal extends Component {
                     </select>
                     <br/>
                     원화
-                    <input type='text' onChange={this.onChangeHandler} value={this.state.krw} />
+                    <input type='text' onChange={this.onInputChangeHandler} value={this.state.krw} />
                     <br/>
                     환전 통화
-                    <input type='text' value={exchange}/>
+                    <input type='text' value={exchange} readOnly/>
                 </fieldset>
             </div>
         )
