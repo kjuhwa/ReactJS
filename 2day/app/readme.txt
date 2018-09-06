@@ -17,3 +17,12 @@
  - 배포 및 서비스 사용
    > npm run-script build
    > build 폴더 내부의 내용을 가지고 원하는 페이지에 삽입
+ - 개별 컴포넌트 만들기
+ - 컴포넌트의 라이프사이클
+ - 네트워크 처리 + 컴포넌트 처리 => 비동기적 상황
+   ajax => 모듈 : axios, got, request, reqwest, superagent, jquery
+   https://npmcompare.com/compare/axios,got,request,reqwest,superagent를 사용해본다
+   프로젝트 신규 생성
+   > create-react-app nettest
+   > cd nettest
+   > npm install --save superagent
