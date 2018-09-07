@@ -1,5 +1,2 @@
-2day/app/helloworld/node_modules/
-2day/app/helloworld/build/
-2day/app/nettest/node_modules/
-2day/app/nettest/build/
-
+*/node_modules/
+*/build/

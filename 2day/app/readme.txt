@@ -26,3 +26,12 @@
    > create-react-app nettest
    > cd nettest
    > npm install --save superagent
+   > 코딩
+ - 라우트 작업
+   > SPA 상세서 여러 페이지 구성시 사용
+   > 즉, 한개의 HTML 안에 여러 페이지를 구성할때 사용
+   > 설치
+     react-router-dom : 웹쪽에서 주로 사용
+     react-router-native : 앱쪽에서 주로 사용
+   > 프로젝트 폴더 이동
+   > npm install --save react-router-dom@4.1.1
