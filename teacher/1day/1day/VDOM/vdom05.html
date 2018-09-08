@@ -1,0 +1,43 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script>
+
+</script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 가상DOM : 리액트를 사용하는 가장큰 이유중에 하나, 
+//           고성능, 빠른 화면처리 => 부분 갱신
+// 원리 : dom의 상태를 메모리에 올리고, 변경 이슈가 발생하면
+//        비교(원래 DOM하고)하여, 다른 부분을 최소로 찾아서
+//        변경 수행 -> 성능이 극대화 된다
+// 실습 : 초단위로 시간이 흘러가고, 변경된것은 반영된다
+// ===========
+// 시:분:초
+// ===========
+
+const root = document.querySelector('#root')
+setInterval(()=>{
+    // 현재 시간 획득
+    var d   = new Date()
+    // 시, 분, 초 획득
+    const h = d.getHours()
+    const m = d.getMinutes()
+    const s = d.getSeconds()
+    // 3. 랜더링
+    ReactDOM.render( <p>{h}:{m}:{s}</p>, root )
+}, 1000)
+
+
+</script>
+</body>
+</html>

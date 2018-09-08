@@ -1,0 +1,20 @@
+{ meta: { is_end: false, total_count: 1934786, pageable_count: 3912 },
+  documents:
+   [ { collection: 'blog',
+       datetime: '2010-05-26T19:13:19.000+09:00',
+       height: 450,
+       width: 600,
+       thumbnail_url: 'https://search1.kakaocdn.net/argon/130x130_85_c/C5gsvbHHOgC',
+       image_url: 'http://www.hanatour.com/asp/travelinfo/view_image.asp?depth=W-PHOTO-1&objimg=image2&img_seq=P000013411',
+       display_sitename: 'Daum블로그',
+       doc_url: 'http://blog.daum.net/skd1027/14046581' },
+     { collection: 'news',
+       datetime: '2018-09-07T11:12:04.000+09:00',
+       height: 360,
+       width: 640,
+       thumbnail_url: 'https://search2.kakaocdn.net/argon/130x130_85_c/x3PyXoJsl7',
+       image_url: 'https://t1.daumcdn.net/news/201809/07/donga/20180907111204897wnpu.jpg',
+       display_sitename: '동아일보',
+       doc_url: 'http://v.media.daum.net/v/20180907111204201' }
+   ]
+}

@@ -1,0 +1,50 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 화면에 h2태그로 title이 나오고
+// <ul> <li>한국</li><li>미국</li> ...   </ul>
+class MyList extends React.Component
+{
+        render () {
+                // 코드 구현 부분
+                const items = this.props.items.split(',')
+                var list = items.map( (item)=>{
+                        return <li key={item}>{item}</li>
+                } )
+                return (
+                    <div>
+                        <h2>{ this.props.title }</h2>
+                        {/* 리스트업 구성할때는 반드시 
+                        고유한 key=유니크한값 를 속성으로
+                        넣어야 한다 => 부분랜더링때문에
+                        만약,한국을또 넣어서 중복키를 만들면
+                        경고뜸 본질적인 처리 필요
+                        */}
+                        <ul>
+                                {list}
+                        </ul>
+                    </div>    
+                )
+        }
+}
+var html =  <div>
+             <MyList title='국가리스트' 
+                     items='한국,미국,일본,중국'/>
+            </div>
+var root = document.querySelector('#root')
+ReactDOM.render( html, root )
+
+</script>
+</body>
+</html>

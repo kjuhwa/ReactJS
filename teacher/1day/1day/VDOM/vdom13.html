@@ -1,0 +1,56 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// event : 컨포넌트내 이벤트 처리 관련 내용, 등록, 호출되고등등
+// 형태(어떻게 정의되고 사용되는지) 3가지 스타일~4가지 
+// 컴포넌트명 MyEvent
+
+// 1. 컴포넌트
+class MyEvent extends React.Component
+{
+    constructor ( props ) {
+        super( props )
+        this.state = {}
+        // 맴버 함수를 콜백에 등록하여 사용시 this 설정에 대한
+        // 타이밍에 문제가 생겨 호출이 않될수도 있다
+        // 명시적으로 this를 잡아줘야 한다
+        this.alertHandlerEx = this.alertHandlerEx.bind(this)
+    }
+    alertHandlerEx (e) {
+        alert('클릭이벤트 발생으로 호출3')
+    }
+    render () {
+        // 스타일 1번 : render() 함수 내에서 이벤트 콜백함수를 정의
+        const alertHandler = (e)=>{
+            alert('클릭이벤트 발생으로 호출1')
+        }
+        return (            
+            <div>
+                {/* 이밴트 속성명 on+이벤트명(첫글자대문자) */}
+                <div onClick={alertHandler}>클릭 1</div>
+                {/* 스타일 1번은 직접 함수를 구현 */}
+                <div onClick={(e)=>alert('클릭이벤트 발생으로 호출2')}>클릭 2</div>
+                <div onClick={this.alertHandlerEx}>클릭 3</div>
+            </div>
+        )
+    }
+}
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+ReactDOM.render( <MyEvent/>, root )
+
+</script>
+</body>
+</html>

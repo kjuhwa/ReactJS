@@ -1,0 +1,41 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 사용자 정의 태그 => 컴포넌트 => <myClock>
+// 함수형, 클레스형
+// 함수형 컴포넌트의 3대요소(props, state, event)
+// 컴포넌트 사용시 속성은 props타고 전달 (readonly?(X) rw)
+function God( props )
+{
+   // jsx 리턴
+   return (
+       <h2>{ props.msg } : { props.time }</h2>
+   ) 
+}
+
+// 1. JSX : 
+var html =  <div>
+             {/*컴포넌트의 속성은 props를 타고 컴포넌트 내부로 전달*/}
+             <God msg='Good morning' time='8'/>
+             <God msg='Good afternoon' time='12'/>
+             <God msg='Good evening' time='18'/>
+            </div>
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+ReactDOM.render( html, root )
+
+</script>
+</body>
+</html>

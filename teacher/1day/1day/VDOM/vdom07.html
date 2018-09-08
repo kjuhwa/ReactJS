@@ -1,0 +1,49 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 함수형 컴포넌틑 MyImage 만드시오
+// src속성에는 이미지 url, label이라는 속성에는 이미지 설명
+// 형태 =====
+//   이미지
+//   설명
+// ==========
+const img_url  = 'http://img.hani.co.kr/imgdb/resize/2018/0905/00501258_20180905.JPG'
+const img_url2 = 'https://t1.daumcdn.net/news/201809/05/ilgansports/20180905170035474knsv.jpg'
+
+
+function MyImage( props )
+{
+   // 이미지 사용시 길이에 대한 명시가 있어야 효율적 처리 된다
+   // jsx 리턴
+   return (
+       <div>
+        <div><img src={props.url} width='100'/></div>
+        <p>{props.label}</p>
+       </div>
+   ) 
+}
+
+// 1. JSX : 
+var html =  <div>
+             <MyImage url={img_url}  label='간사이'/>
+             <MyImage url={img_url2} label='손홍민'/>
+            </div>
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+ReactDOM.render( html, root )
+
+</script>
+</body>
+</html>

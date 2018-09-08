@@ -1,0 +1,56 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+* {
+    color:red;
+}
+</style>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+
+// 1. JSX : 에 스타일 적용하기 
+// css 적용하시오 => html에 css 적용법이 
+// 브라우저스타일<external< internal< inline(이 방법 사용)
+function makeHtml()
+{
+    // 스타일
+    const css1= {
+        'color':'blue',
+        'backgroundColor':'#dadada',
+        'fontSize':'3em'
+    }
+    const css2= {
+        'color':'pink',
+        'backgroundColor':'#ffff00',
+        'fontSize':'1em'
+    }
+    const css3= {
+        'fontSize':'2em'
+    }
+
+    return (<div>
+        <p style={css1}>스타일 적용1</p>
+        <p style={css2}>스타일 적용2</p>
+        {/* JSX내에 주석 사용방법 */}
+        {/* 스타일 직접 부여시 중괄호를 2번 사용(오버랩금지) */}
+        <p style={{'fontSize':'2em'}}>스타일 적용3</p>    
+    </div>)
+}
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+ReactDOM.render( makeHtml(), root )
+
+</script>
+</body>
+</html>

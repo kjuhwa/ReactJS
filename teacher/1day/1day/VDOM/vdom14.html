@@ -1,0 +1,64 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 컴포넌트명 MyTravelCity
+// 화면 모습
+/* 
+복수 선택 가능함 
+=====================
+어디로 갈까?
+○ 홍콩
+● 후쿠오카
+○ 라오숭
+○ 제주
+=====================
+*/
+
+// 1. 컴포넌트
+class MyTravelCity extends React.Component
+{
+    constructor (props) {
+        super(props)
+        this.state = {
+            select:false
+        }
+    }
+    render () {
+        const selectIcon = this.state.select ? '●' : '○'
+        const chgSelect  = (e)=>{
+            // 이벤트가 발생하면 호출되는데 -> 선택을 변경한다(반대로)
+            this.setState( {select:!this.state.select} )
+        }
+        return (            
+            <div onClick={chgSelect}>
+                {selectIcon} {this.props.city}
+            </div>
+        )
+    }
+}
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+var html =  <div>
+                <h2>어디로 갈까?</h2>
+                <MyTravelCity city='홍콩'/>
+                <MyTravelCity city='후쿠오카'/>
+                <MyTravelCity city='라오숭'/>
+                <MyTravelCity city='제주'/>
+            </div>
+ReactDOM.render( html, root )
+
+</script>
+</body>
+</html>

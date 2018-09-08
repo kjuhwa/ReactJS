@@ -1,0 +1,16 @@
+/* 네비게이트 베이스 레이아웃 */
+.Navigate {
+    position: relative;
+}
+/* 버튼 레이아웃 오른쪽만 */
+.ui.button.Navigate-right-button {
+    float: right;
+    margin: 0px;
+}
+/* 페이지번호 */
+.Navigate-page-num {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 50%)
+}

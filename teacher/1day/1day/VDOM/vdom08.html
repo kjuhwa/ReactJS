@@ -1,0 +1,41 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+
+// 컴포넌트 class로 구성
+class MyImage extends React.Component
+{
+    // 컴포넌트가 생성되면 최초 1회 render()가 호출된다.
+    render () {
+        return (
+            <div>
+                <div><img src={this.props.url} width='100'/></div>
+                <p>{this.props.label}</p>
+            </div>
+        )
+    }
+}
+const img_url  = 'http://img.hani.co.kr/imgdb/resize/2018/0905/00501258_20180905.JPG'
+const img_url2 = 'https://t1.daumcdn.net/news/201809/05/ilgansports/20180905170035474knsv.jpg'
+var html =  <div>
+             <MyImage url={img_url}  label='간사이'/>
+             <MyImage url={img_url2} label='손홍민'/>
+            </div>
+
+var root = document.querySelector('#root')
+ReactDOM.render( html, root )
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+
+// 1. JSX : 개발이 용이, 빠른 구성가능
+//          값을 넣는 방법 : {값}
+const price = 10000
+const mName = '네이버페이'
+// 속성의 값으로 {값}을 사용하면 자동으로 '' or "" 처리가됨
+var html =  <div>
+             <p type={mName}>나의 {mName}에는 현금 {price}가 있다</p>
+            </div>
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+ReactDOM.render( html, root )
+
+</script>
+</body>
+</html>

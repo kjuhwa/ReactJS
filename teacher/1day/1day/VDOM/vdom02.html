@@ -1,0 +1,38 @@
+<!-- VDOM 템플릿 구성 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>react vdom 템플릿</title>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>    
+<body>
+<!-- 리액트 컴포넌트가 그려진 대상(부모)-->
+<div id='root'></div>
+<script type='text/babel'>
+// 새로고침을 하면 화면의 글자가 react, flux, redux로 랜덤변경된다
+// 구현하시오
+// Math.floor( Math.random()*3)
+// 1. JSX
+function makeHtml()
+{
+    // 프로그래밍 적인 요소를 적용하여 동적구성이 가능
+    const i = Math.floor( Math.random()*3)
+    if( i == 0 ){
+        return <p>react</p>
+    }else if( i == 1 ){
+        return <p>flux</p>
+    }else {
+        return <p>redux</p>
+    }
+}
+// 2. 랜더링 대상
+var root = document.querySelector('#root')
+// 3. 랜더링
+ReactDOM.render( makeHtml(), root )
+
+</script>
+</body>
+</html>
