@@ -1,0 +1,7 @@
+.CommentStyle p {
+ font-size: 1.2rem;
+ color: darkblue;
+}
+.CommentStyle p strong{
+ color: brown;
+}

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import './Header.css'
 
 // 단순한 props를 보여주는 경우나 이벤트가 전혀 없는 컴포넌트들

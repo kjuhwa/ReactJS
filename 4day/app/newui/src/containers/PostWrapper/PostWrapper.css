@@ -1,0 +1,11 @@
+.PostWrapper {
+    width: 50rem;
+    margin: 0 auto;
+
+}
+/* 미디어 쿼리 */
+@media (max-width: 768px) {
+    .PostWrapper {
+        width: 90%;
+    }
+}

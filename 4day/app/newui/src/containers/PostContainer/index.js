@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 // 패턴1 => service/net 밑에 있는 모듈 모두 가져오기
 import * as net from '../../services/net'
 // 패턴2 => 대표 모듈에 개별 모듈을 감싸서 가져오기
-import {getMyPost, getComments} from '../../services'
+// import {getMyPost, getComments} from '../../services'
 // 다른 컴포넌트 가져오기
-import {Navigate} from '../../components'
+import {Navigate, Post, WarnAlert} from '../../components'
+import {PostWrapper} from '../../containers'
 
 // 컴포넌트들을 관리하는 컴포넌트
 // 단순 랜더링을 수행하는 컴포넌트들을 통제 관리하는 컴포넌트로
@@ -95,15 +96,15 @@ class PostContainer extends Component {
         // 표현에 필요한 데이터를 획득
         const { postId, fetching, post, comments, isLastPostWarn } = this.state
         return (
-            <div>
+            <PostWrapper>
                 {/* 네이게이터 (이전글, 다음글) */}
                 <Navigate postId={postId} fetching={fetching} onClick={this.postRequestClick} />
                 {/* 포스팅 (제목, 내용, 댓글리스트) */}
-                {/* <Post /> */}
+                <Post postId={postId} title={post.title} body={post.body} comments={comments} />
                 {/* 경고창 (더이상 글이 없을때 알림) */}
-                {/* <WarnAlert /> */}
+                <WarnAlert showFlag={isLastPostWarn} msg='더이상 글이 없다' />
                 {/* 로딩 */}
-            </div>
+            </PostWrapper>
         )
     }
 }
